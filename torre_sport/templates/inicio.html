@@ -4,8 +4,9 @@
 {% block cabecera %} 
 <link rel="stylesheet" href="{% static 'css/inicio.css' %}"> 
 {% endblock %}
-<h2> Welcome to Torre-Sport App </h2>
+
 {% block cuerpo %}
+<h2> Welcome to Torre-Sport App </h2>
 <a href="{% url 'torre_sport:list_deportes' %}"> Deportes </a>
 <a href="{% url 'torre_sport:list_equipos' %}"> Equipos </a>
 <a href="{% url 'torre_sport:list_instalaciones' %}"> Instalaciones </a>
