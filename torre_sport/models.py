@@ -65,17 +65,17 @@ class Partido(models.Model):
     id_instalacion = models.ForeignKey(
         Instalacion, on_delete=models.RESTRICT, db_column="id_instalacion", default=0
     )
-    id_equipo_local = models.ForeignKey(
+    id_local = models.ForeignKey(
         Equipo,
         related_name="partidos_local",
         on_delete=models.RESTRICT,
-        db_column="id_equipo_local",
+        db_column="id_local",
     )
-    id_equipo_visitante = models.ForeignKey(
+    id_visitante = models.ForeignKey(
         Equipo,
         related_name="partidos_visitante",
         on_delete=models.RESTRICT,
-        db_column="id_equipo_visitante",
+        db_column="id_visitante",
     )
     puntos_local = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     puntos_visitante = models.IntegerField(default=0, validators=[MinValueValidator(0)])

@@ -52,3 +52,35 @@ class DeporteListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+class EquipoListView(generic.ListView):
+    model = models.Equipo
+    template_name = "list_equipos.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class InstalacionListView(generic.ListView):
+    model = models.Instalacion
+    template_name = "list_instalaciones.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+class JugadorListView(generic.ListView):
+    model = models.Jugador
+    template_name = "list_jugadores.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+class PartidoListView(generic.ListView):
+    model = models.Partido
+    template_name = "list_partidos.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

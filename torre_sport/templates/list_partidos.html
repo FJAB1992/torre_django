@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}"> 
+{% endblock %}
+
+{% block cuerpo %}
+<h2 class="text-center"> Jugadores </h2>
+
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">ID partido</th>
+                <th scope="col">Id deporte</th>
+                <th scope="col">Fecha hora</th>
+                <th scope="col">Id instalacion</th>
+                <th scope="col">Id equipo local</th>
+                <th scope="col">Id equipo visitante</th>
+                <th scope="col">Puntos local</th>
+                <th scope="col">Puntos visitante</th>
+                <th scope="col">Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for partido in object_list %}
+            <tr>
+                <td>{{ partido.id_partido }}</td>
+                <td>{{ partido.id_deporte }}</td>
+                <td>{{ partido.fecha_hora }}</td>
+                <td>{{ partido.id_instalacion }}</td>
+                <td>{{ partido.id_local }}</td>
+                <td>{{ partido.id_visitante }}</td>
+                <td>{{ partido.puntos_local }}</td>
+                <td>{{ partido.puntos_visitante }}</td>
+                <td>{{ partido.observaciones }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

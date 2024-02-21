@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}"> 
+{% endblock %}
+
+{% block cuerpo %}
+<h2 class="text-center"> Jugadores </h2>
+
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">ID jugador</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido 1</th>
+                <th scope="col">Apellido 2</th>
+                <th scope="col">Id equipo</th>
+                <th scope="col">Dorsal</th>
+                <th scope="col">Fecha nacimiento</th>
+                <th scope="col">Altura</th>
+                <th scope="col">Peso</th>
+                <th scope="col">Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jugadores in object_list %}
+            <tr>
+                <td>{{ jugadores.id_jugador }}</td>
+                <td>{{ jugadores.nombre }}</td>
+                <td>{{ jugadores.apellido1 }}</td>
+                <td>{{ jugadores.apellido2 }}</td>
+                <td>{{ jugadores.id_equipo }}</td>
+                <td>{{ jugadores.dorsal }}</td>
+                <td>{{ jugadores.fecha_nacimiento }}</td>
+                <td>{{ jugadores.altura }}</td>
+                <td>{{ jugadores.peso }}</td>
+                <td>{{ jugadores.telefono }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

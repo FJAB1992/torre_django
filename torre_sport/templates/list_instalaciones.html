@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}"> 
+{% endblock %}
+
+{% block cuerpo %}
+<h2 class="text-center"> Instalaciones </h2>
+
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">ID instalación</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Iluminación</th>
+                <th scope="col">Cubierta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for instalacion in object_list %}
+            <tr>
+                <td>{{ instalacion.id_instalacion }}</td>
+                <td>{{ instalacion.nombre }}</td>
+                <td>{{ instalacion.direccion }}</td>
+                <td>{{ instalacion.iluminacion }}</td>
+                <td>{{ instalacion.cubierta }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
