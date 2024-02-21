@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from torre_sport import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path('', include('torre_sport.urls',namespace='default_urls')),
-    # path('torre_sport/', include('torre_url.urls',namespace="torre_urls")),
+    path("inicio/", views.InicioView.as_view(), name="inicio"),
+    path('admin/', admin.site.urls),  
 ]

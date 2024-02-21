@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from datetime import datetime
 from . import models
+from . import views
 
 # from .forms import DeporteForm, InstalacionForm, EquipoForm, JugadorForm, PartidoForm
 from django.views import generic
 
-
-class Inicio(generic.ListView):
+class InicioView(generic.ListView):
     template_name = "inicio.html"
     context_object_name = "contexto"
 
@@ -31,3 +31,17 @@ class Inicio(generic.ListView):
             fecha_hora__gte=datetime.now()
         ).order_by("fecha_hora")[:5]
         return contexto
+
+
+# class InicioView(generic.ListView):
+#     template_name = "inicio.html"
+#     model = models.Deporte
+
+#     # def get_context_data(self, **kwargs):
+#     #     context = super().get_context_data(**kwargs)
+#     #     context["instalaciones"] = models.Instalacion.objects.all()
+#     #     context["equipos"] = models.Equipo.objects.all()
+#     #     context["jugadores"] = models.Jugador.objects.all()
+#     #     context["partidos"] = models.Partido.objects.all()
+#     #     context["deportes"] = models.Deporte.objects.all()
+#     #     return context

@@ -62,9 +62,21 @@ class Partido(models.Model):
         Equipo, on_delete=models.RESTRICT, db_column="id_deporte", default=0
     )
     fecha_hora = models.DateTimeField()
-    id_instalacion = models.ForeignKey(Instalacion, on_delete=models.RESTRICT, db_column="id_instalacion", default=0)
-    id_local = models.IntegerField(default=0,validators=[MinValueValidator(0)])
-    id_visitante = models.IntegerField(default=0,validators=[MinValueValidator(0)])
+    id_instalacion = models.ForeignKey(
+        Instalacion, on_delete=models.RESTRICT, db_column="id_instalacion", default=0
+    )
+    id_equipo_local = models.ForeignKey(
+        Equipo,
+        related_name="partidos_local",
+        on_delete=models.RESTRICT,
+        db_column="id_equipo_local",
+    )
+    id_equipo_visitante = models.ForeignKey(
+        Equipo,
+        related_name="partidos_visitante",
+        on_delete=models.RESTRICT,
+        db_column="id_equipo_visitante",
+    )
     puntos_local = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     puntos_visitante = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     observaciones = models.CharField(max_length=200)
@@ -99,4 +111,4 @@ class Jugador(models.Model):
         db_table = "jugadores"
 
     def __str__(self):
-        return f"{self.id_jugador} {self.nombre} {self.dni} {self.id_equipo} {self.dorsal} {self.fecha_nacimiento} {self.altura} {self.peso} {self.telefono}"
+        return f"{self.id_jugador} {self.nombre} {self.dni} {self.id_equipo.id_equipo} {self.dorsal} {self.fecha_nacimiento} {self.altura} {self.peso} {self.telefono}"
