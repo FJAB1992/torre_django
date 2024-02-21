@@ -19,6 +19,6 @@ from django.urls import path, include
 from torre_sport import views
 
 urlpatterns = [
-    path("inicio/", views.InicioView.as_view(), name="inicio"),
+    path('',include('torre_sport.urls',namespace='torre_sport')),
     path('admin/', admin.site.urls),  
 ]

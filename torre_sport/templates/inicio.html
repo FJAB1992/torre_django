@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block titulo %} Inicio {% endblock %}
 {% block cabecera %} 
 <link rel="stylesheet" href="{% static 'css/inicio.css' %}"> 
 {% endblock %}
-
+<h2> Welcome to Torre-Sport App </h2>
 {% block cuerpo %}
-{% comment %} <a href="{% url 'torre_sport:list_deportes'%}"> Deportes</a>
-<a href="{% url 'torre_sport:list_equipos'%}"> Equipos</a>
-<a href="{% url 'torre_sport:list_instalaciones'%}"> Instalaciones</a>
-<a href="{% url 'torre_sport:list_jugadores'%}"> Jugadores</a>
-<a href="{% url 'torre_sport:list_partidos'%}"> Partidos</a> {% endcomment %}
+<a href="{% url 'torre_sport:list_deportes' %}"> Deportes </a>
+{% comment %} <a href="{% url 'torre_sport:list_equipos' %}"> Equipos</a>
+<a href="{% url 'torre_sport:list_instalaciones' %}"> Instalaciones</a>
+<a href="{% url 'torre_sport:list_jugadores' %}"> Jugadores</a>
+<a href="{% url 'torre_sport:list_partidos' %}"> Partidos</a> {% endcomment %}
 {% endblock %}

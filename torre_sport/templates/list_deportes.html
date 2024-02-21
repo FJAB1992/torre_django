@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %} Deportes {% endblock %}
+
+
+{% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}"> 
+{% endblock %}
+
+{% block cuerpo %}
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for deporte in object_list %}
+            <tr>
+                <td>{{ deporte.id_deporte }}</td>
+                <td>{{ deporte.nombre }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
