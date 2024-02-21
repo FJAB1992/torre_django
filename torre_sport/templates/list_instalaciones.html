@@ -16,6 +16,7 @@
                 <th scope="col">Direccion</th>
                 <th scope="col">Iluminación</th>
                 <th scope="col">Cubierta</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -26,10 +27,15 @@
                 <td>{{ instalacion.direccion }}</td>
                 <td>{{ instalacion.iluminacion }}</td>
                 <td>{{ instalacion.cubierta }}</td>
+                <td>
+                    {% comment %} <a href="{% url 'torre_sport:actualizar_deporte' %}">[Agregar]</a> {% endcomment %}
+                    <a href="{% url 'torre_sport:actualizar_instalacion' instalacion.pk %}">[Actualizar]</a>
+                    <a href="{% url 'torre_sport:borrar_instalacion' instalacion.pk %}">[Borrar]</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
-
+<a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Volver"></a>
 {% endblock %}

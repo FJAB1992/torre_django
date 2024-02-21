@@ -19,6 +19,7 @@
                 <th scope="col">Contacto</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Email</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -32,10 +33,15 @@
                 <td>{{ equipo.contacto }}</td>
                 <td>{{ equipo.telefono }}</td>
                 <td>{{ equipo.email }}</td>
+                <td>
+                    {% comment %} <a href="{% url 'torre_sport:actualizar_deporte' %}">[Agregar]</a> {% endcomment %}
+                    <a href="{% url 'torre_sport:actualizar_equipo' equipo.pk %}">[Actualizar]</a>
+                    <a href="{% url 'torre_sport:borrar_equipo' equipo.pk %}">[Borrar]</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
-
+<a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Volver"></a>
 {% endblock %}

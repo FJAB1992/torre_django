@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from datetime import datetime
 from . import models
-from . import views
 
-# from .forms import DeporteForm, InstalacionForm, EquipoForm, JugadorForm, PartidoForm
+from .forms import DeporteForm, EquipoForm, InstalacionForm, JugadorForm, PartidoForm
 from django.views import generic
 
 # class InicioView(generic.ListView):
@@ -32,7 +31,8 @@ from django.views import generic
 #         ).order_by("fecha_hora")[:5]
 #         return contexto
 
-class InicioView(generic.ListView): 
+
+class InicioView(generic.ListView):
     model = models.Deporte
     template_name = "inicio.html"
 
@@ -44,31 +44,88 @@ class InicioView(generic.ListView):
     #     context['partidos'] = models.Partido.objects.all()
     #     context['deportes'] = models.Deporte.objects.all()
     #     return context
-    
+
+
+# Vistas de deportes
 class DeporteListView(generic.ListView):
     model = models.Deporte
     template_name = "list_deportes.html"
+    context_object_name = "deporte"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
+
+
+# class CrearDeporteView(generic.CreateView):
+#     model = models.Deporte
+#     form_class = models.DeporteForm
+#     template_name = "crear_deporte.html"
+#     success_url = "/list_deportes"
+class BorrarDeporteView(generic.DeleteView):
+    model = models.Deporte
+    fields = "__all__"
+    template_name = "borrar_deporte.html"
+    success_url = "/list_deportes"
+
+
+class ActualizarDeporteView(generic.UpdateView):
+    model = models.Deporte
+    form_class = DeporteForm
+    template_name = "actualizar_deportes.html"
+    success_url = "/list_deportes"
+
+
+# Vistas de equipos
 class EquipoListView(generic.ListView):
     model = models.Equipo
     template_name = "list_equipos.html"
+    context_object_name = "equipo"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
+
+class BorrarEquipoView(generic.DeleteView):
+    model = models.Equipo
+    fields = "__all__"
+    template_name = "borrar_equipo.html"
+    success_url = "/list_equipos"
+
+
+class ActualizarEquipoView(generic.UpdateView):
+    model = models.Equipo
+    form_class = EquipoForm
+    template_name = "actualizar_equipo.html"
+    success_url = "/list_equipos"
+
+
+# Vistas de instalaciones
 class InstalacionListView(generic.ListView):
     model = models.Instalacion
     template_name = "list_instalaciones.html"
+    context_object_name = "instalacion"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+class BorrarInstalacionView(generic.DeleteView):
+    model = models.Instalacion
+    fields = "__all__"
+    template_name = "borrar_instalacion.html"
+    success_url = "/list_instalaciones"
+
+
+class ActualizarInstalacionView(generic.UpdateView):
+    model = models.Instalacion
+    form_class = InstalacionForm
+    template_name = "actualizar_instalacion.html"
+    success_url = "/list_instalaciones"
     
+# Vistas de jugadores
 class JugadorListView(generic.ListView):
     model = models.Jugador
     template_name = "list_jugadores.html"
@@ -76,7 +133,21 @@ class JugadorListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
+
+
+class BorrarJugadorView(generic.DeleteView):
+    model = models.Jugador
+    fields = "__all__"
+    template_name = "borrar_jugador.html"
+    success_url = "/list_jugadores"
+
+class ActualizarJugadorView(generic.UpdateView):
+    model = models.Jugador
+    form_class = JugadorForm
+    template_name = "actualizar_jugador.html"
+    success_url = "/list_jugadores"
+
+# Vistas de Partidos
 class PartidoListView(generic.ListView):
     model = models.Partido
     template_name = "list_partidos.html"
@@ -84,3 +155,16 @@ class PartidoListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+class BorrarPartidoView(generic.DeleteView):
+    model = models.Partido
+    fields = "__all__"
+    template_name = "borrar_partido.html"
+    success_url = "/list_partidos"
+
+class ActualizarPartidoView(generic.UpdateView):
+    model = models.Partido
+    form_class = PartidoForm
+    template_name = "actualizar_partido.html"
+    success_url = "/list_partidos"

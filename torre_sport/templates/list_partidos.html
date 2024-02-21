@@ -20,6 +20,7 @@
                 <th scope="col">Puntos local</th>
                 <th scope="col">Puntos visitante</th>
                 <th scope="col">Observaciones</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -34,10 +35,15 @@
                 <td>{{ partido.puntos_local }}</td>
                 <td>{{ partido.puntos_visitante }}</td>
                 <td>{{ partido.observaciones }}</td>
+                <td>
+                    {% comment %} <a href="{% url 'torre_sport:actualizar_deporte' %}">[Agregar]</a> {% endcomment %}
+                    <a href="{% url 'torre_sport:actualizar_partido' partido.pk %}">[Actualizar]</a>
+                    <a href="{% url 'torre_sport:borrar_partido' partido.pk %}">[Borrar]</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
-
+<a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Volver"></a>
 {% endblock %}

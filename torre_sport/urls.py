@@ -8,12 +8,24 @@ urlpatterns = [
     path('inicio/', views.InicioView.as_view(), name="inicio"),
     # Deportes
     path('list_deportes/', views.DeporteListView.as_view(), name="list_deportes"),
+    path('borrar_deporte/<int:pk>/', views.BorrarDeporteView.as_view(), name="borrar_deporte"),
+    path('actualizar_deporte/<int:pk>/', views.ActualizarDeporteView.as_view(), name="actualizar_deporte"),
+    # path('crear_deporte/', views.CrearDeporteView.as_view(), name="crear_deporte"),
+    
     # Equipos
-    path('list_equipos/', views.EquipoListView.as_view(), name="list_equipos"), 
+    path('list_equipos/', views.EquipoListView.as_view(), name="list_equipos"),
+    path('borrar_equipo/<int:pk>/', views.BorrarEquipoView.as_view(), name="borrar_equipo"),
+    path('actualizar_equipo/<int:pk>/', views.ActualizarEquipoView.as_view(), name="actualizar_equipo"),
     # Instalaciones
     path('list_instalaciones/', views.InstalacionListView.as_view(), name="list_instalaciones"),
+    path('borrar_instalacion/<int:pk>/', views.BorrarInstalacionView.as_view(), name="borrar_instalacion"),
+    path('actualizar_instalacion/<int:pk>/', views.ActualizarInstalacionView.as_view(), name="actualizar_instalacion"),
     # Jugadores
-    path('list_jugadores/', views.JugadorListView.as_view(), name="list_jugadores"), 
+    path('list_jugadores/', views.JugadorListView.as_view(), name="list_jugadores"),
+    path('borrar_jugador/<int:pk>/', views.BorrarJugadorView.as_view(), name="borrar_jugador"),
+    path('actualizar_jugador/<int:pk>/', views.ActualizarJugadorView.as_view(), name="actualizar_jugador"),
     # Partidos
-    path('list_partidos/', views.PartidoListView.as_view(), name="list_partidos"),    
+    path('list_partidos/', views.PartidoListView.as_view(), name="list_partidos"),
+    path('borrar_partido/<int:pk>/', views.BorrarPartidoView.as_view(), name="borrar_partido"),
+    path('actualizar_partido/<int:pk>/', views.ActualizarPartidoView.as_view(), name="actualizar_partido"),   
 ]

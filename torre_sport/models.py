@@ -111,4 +111,4 @@ class Jugador(models.Model):
         db_table = "jugadores"
 
     def __str__(self):
-        return f"{self.id_jugador} {self.nombre} {self.dni} {self.id_equipo.id_equipo} {self.dorsal} {self.fecha_nacimiento} {self.altura} {self.peso} {self.telefono}"
+        return f"{self.id_jugador} {self.nombre} {self.apellido1} {self.apellido2} {self.id_equipo.id_equipo} {self.dorsal} {self.fecha_nacimiento} {self.altura} {self.peso} {self.telefono}"
