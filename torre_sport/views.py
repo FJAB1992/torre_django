@@ -72,7 +72,7 @@ class BorrarDeporteView(generic.DeleteView):
 class ActualizarDeporteView(generic.UpdateView):
     model = models.Deporte
     form_class = DeporteForm
-    template_name = "actualizar_deportes.html"
+    template_name = "actualizar_deporte.html"
     success_url = "/list_deportes"
 
 

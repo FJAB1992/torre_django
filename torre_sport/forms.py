@@ -5,6 +5,7 @@ from . import models
 class DeporteForm(forms.ModelForm):
     class Meta:
         model = models.Deporte
+        exclude = ["id_deporte"]
         fields = ["nombre"]
         widgets = {
             "nombre": forms.TextInput(attrs={"class": "form-control"}),
@@ -53,7 +54,7 @@ class InstalacionForm(forms.ModelForm):
 class JugadorForm(forms.ModelForm):
     class Meta:
         model = models.Jugador
-        exclude = ["id_jugador", "altura"]
+        exclude = ["id_jugador"]
         fields = [
             "nombre",
             "apellido1",
@@ -71,6 +72,7 @@ class JugadorForm(forms.ModelForm):
             "apellido2": forms.TextInput(attrs={"class": "form-control"}),
             "dorsal": forms.NumberInput(attrs={"class": "form-select"}),
             "fecha_nacimiento": forms.DateInput(attrs={"class": "form-select"}),
+            "altura": forms.NumberInput(attrs={"class": "form-control"}),
             "peso": forms.NumberInput(attrs={"class": "form-control"}),
             "telefono": forms.TextInput(attrs={"class": "form-control"}),
         }

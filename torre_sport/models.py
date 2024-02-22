@@ -23,11 +23,11 @@ class Equipo(models.Model):
     id_deporte = models.ForeignKey(
         Deporte, on_delete=models.RESTRICT, db_column="id_deporte", default=0
     )
-    equipacion_principal = models.CharField(max_length=100)
-    equipacion_suplente = models.CharField(max_length=100)
-    contacto = models.CharField(max_length=100)
-    telefono = models.CharField(max_length=15)
-    email = models.EmailField(max_length=100)
+    equipacion_principal = models.CharField(max_length=100,blank=True,null=True)
+    equipacion_suplente = models.CharField(max_length=100,blank=True,null=True)
+    contacto = models.CharField(max_length=100,blank=True,null=True)
+    telefono = models.CharField(max_length=15,blank=True,null=True)
+    email = models.EmailField(max_length=100,blank=True,null=True)
 
     class Meta:
         verbose_name = "Equipo"
@@ -42,7 +42,7 @@ class Equipo(models.Model):
 class Instalacion(models.Model):
     id_instalacion = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20, unique=True)
-    direccion = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=100,blank=True,null=True)
     iluminacion = models.BooleanField(default=False)
     cubierta = models.BooleanField(default=False)
 
@@ -79,7 +79,7 @@ class Partido(models.Model):
     )
     puntos_local = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     puntos_visitante = models.IntegerField(default=0, validators=[MinValueValidator(0)])
-    observaciones = models.CharField(max_length=200)
+    observaciones = models.CharField(max_length=200,blank=True,null=True)
 
     class Meta:
         verbose_name = "Partido"
@@ -101,9 +101,9 @@ class Jugador(models.Model):
     )
     dorsal = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     fecha_nacimiento = models.DateField()
-    altura = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    altura = models.DecimalField(max_digits=3, decimal_places=2,default=0, validators=[MinValueValidator(0)])
     peso = models.IntegerField(default=0, validators=[MinValueValidator(0)])
-    telefono = models.CharField(max_length=15)
+    telefono = models.CharField(max_length=15,blank=True,null=True)
 
     class Meta:
         verbose_name = "Jugador"
