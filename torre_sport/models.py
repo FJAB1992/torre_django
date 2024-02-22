@@ -13,7 +13,7 @@ class Deporte(models.Model):
         db_table = "deportes"
 
     def __str__(self):
-        return f"{self.id_deporte} {self.nombre}"
+        return f"{self.id_deporte}"
 
 
 # Tabla equipos
@@ -35,7 +35,7 @@ class Equipo(models.Model):
         db_table = "equipos"
 
     def __str__(self):
-        return f"{self.id_equipo} {self.nombre} {self.id_deporte} {self.equipacion_principal} {self.equipacion_suplente} {self.contacto} {self.telefono} {self.email}"
+        return f"{self.id_equipo}"
 
 
 # Tabla instalaciones
@@ -52,7 +52,7 @@ class Instalacion(models.Model):
         db_table = "instalaciones"
 
     def __str__(self):
-        return f"{self.id_instalacion} {self.nombre} {self.direccion} {self.iluminacion} {self.cubierta}"
+        return f"{self.id_instalacion}"
 
 
 # Tabla partidos
