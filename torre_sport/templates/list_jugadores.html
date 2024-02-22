@@ -38,7 +38,6 @@
                 <td>{{ jugador.peso }}</td>
                 <td>{{ jugador.telefono }}</td>
                 <td>
-                    {% comment %} <a href="{% url 'torre_sport:actualizar_deporte' %}">[Agregar]</a> {% endcomment %}
                     <a href="{% url 'torre_sport:actualizar_jugador' jugador.pk %}">[Actualizar]</a>
                     <a href="{% url 'torre_sport:borrar_jugador' jugador.pk %}">[Borrar]</a>
                 </td>
@@ -48,4 +47,5 @@
     </table>
 </div>
 <a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Volver"></a>
+<a href="{% url 'torre_sport:crear_jugador' %}"><input type="button" value="Añadir"></a>
 {% endblock %}

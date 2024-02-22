@@ -23,11 +23,11 @@ class Equipo(models.Model):
     id_deporte = models.ForeignKey(
         Deporte, on_delete=models.RESTRICT, db_column="id_deporte", default=0
     )
-    equipacion_principal = models.CharField(max_length=100,blank=True,null=True)
-    equipacion_suplente = models.CharField(max_length=100,blank=True,null=True)
-    contacto = models.CharField(max_length=100,blank=True,null=True)
-    telefono = models.CharField(max_length=15,blank=True,null=True)
-    email = models.EmailField(max_length=100,blank=True,null=True)
+    equipacion_principal = models.CharField(max_length=100)
+    equipacion_suplente = models.CharField(max_length=100)
+    contacto = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=15)
+    email = models.EmailField(max_length=100)
 
     class Meta:
         verbose_name = "Equipo"

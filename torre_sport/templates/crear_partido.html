@@ -10,6 +10,6 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input type="Submit" value="Crear" />
-        <a href="{% url 'torre_sport:list_deportes' %}"><input type="button" value="Cancelar"></a>
+        <a href="{% url 'torre_sport:list_partidos' %}"><input type="button" value="Cancelar"></a>
     </form>
 {% endblock %}

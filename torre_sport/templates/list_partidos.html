@@ -36,7 +36,6 @@
                 <td>{{ partido.puntos_visitante }}</td>
                 <td>{{ partido.observaciones }}</td>
                 <td>
-                    {% comment %} <a href="{% url 'torre_sport:actualizar_deporte' %}">[Agregar]</a> {% endcomment %}
                     <a href="{% url 'torre_sport:actualizar_partido' partido.pk %}">[Actualizar]</a>
                     <a href="{% url 'torre_sport:borrar_partido' partido.pk %}">[Borrar]</a>
                 </td>
@@ -46,4 +45,5 @@
     </table>
 </div>
 <a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Volver"></a>
+<a href="{% url 'torre_sport:crear_partido' %}"><input type="button" value="Añadir"></a>
 {% endblock %}

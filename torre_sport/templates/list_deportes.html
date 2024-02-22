@@ -25,7 +25,6 @@
                 <td>{{ deporte.id_deporte }}</td>
                 <td>{{ deporte.nombre }}</td>
                 <td>
-                    {% comment %} <a href="{% url 'torre_sport:actualizar_deporte' %}">[Agregar]</a> {% endcomment %}
                     <a href="{% url 'torre_sport:actualizar_deporte' deporte.pk %}">[Actualizar]</a>
                     <a href="{% url 'torre_sport:borrar_deporte' deporte.pk %}">[Borrar]</a>
                 </td>
@@ -35,4 +34,5 @@
     </table>
 </div>
 <a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Volver"></a>
+<a href="{% url 'torre_sport:crear_deporte' %}"><input type="button" value="Agregar"></a>
 {% endblock %}

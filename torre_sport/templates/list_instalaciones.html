@@ -28,7 +28,6 @@
                 <td>{{ instalacion.iluminacion }}</td>
                 <td>{{ instalacion.cubierta }}</td>
                 <td>
-                    {% comment %} <a href="{% url 'torre_sport:actualizar_deporte' %}">[Agregar]</a> {% endcomment %}
                     <a href="{% url 'torre_sport:actualizar_instalacion' instalacion.pk %}">[Actualizar]</a>
                     <a href="{% url 'torre_sport:borrar_instalacion' instalacion.pk %}">[Borrar]</a>
                 </td>
@@ -38,4 +37,5 @@
     </table>
 </div>
 <a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Volver"></a>
+<a href="{% url 'torre_sport:crear_instalacion' %}"><input type="button" value="Añadir"></a>
 {% endblock %}

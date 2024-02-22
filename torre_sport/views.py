@@ -56,12 +56,12 @@ class DeporteListView(generic.ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-
-# class CrearDeporteView(generic.CreateView):
-#     model = models.Deporte
-#     form_class = models.DeporteForm
-#     template_name = "crear_deporte.html"
-#     success_url = "/list_deportes"
+class CrearDeporteView(generic.CreateView):
+    model = models.Deporte
+    form_class = DeporteForm
+    template_name = "crear_deporte.html"
+    success_url = "/list_deportes"
+    
 class BorrarDeporteView(generic.DeleteView):
     model = models.Deporte
     fields = "__all__"
@@ -87,6 +87,12 @@ class EquipoListView(generic.ListView):
         return context
 
 
+class CrearEquipoView(generic.CreateView):
+    model = models.Equipo
+    form_class = EquipoForm
+    template_name = "crear_equipo.html"
+    success_url = "/list_equipos"
+    
 class BorrarEquipoView(generic.DeleteView):
     model = models.Equipo
     fields = "__all__"
@@ -124,6 +130,12 @@ class ActualizarInstalacionView(generic.UpdateView):
     form_class = InstalacionForm
     template_name = "actualizar_instalacion.html"
     success_url = "/list_instalaciones"
+
+class CrearInstalacionView(generic.CreateView):
+    model = models.Instalacion
+    form_class = InstalacionForm
+    template_name = "crear_instalacion.html"
+    success_url = "/list_instalaciones"
     
 # Vistas de jugadores
 class JugadorListView(generic.ListView):
@@ -147,6 +159,12 @@ class ActualizarJugadorView(generic.UpdateView):
     template_name = "actualizar_jugador.html"
     success_url = "/list_jugadores"
 
+class CrearJugadorView(generic.CreateView):
+    model = models.Jugador
+    form_class = JugadorForm
+    template_name = "crear_jugador.html"
+    success_url = "/list_jugadores"
+    
 # Vistas de Partidos
 class PartidoListView(generic.ListView):
     model = models.Partido
@@ -168,3 +186,10 @@ class ActualizarPartidoView(generic.UpdateView):
     form_class = PartidoForm
     template_name = "actualizar_partido.html"
     success_url = "/list_partidos"
+    
+class CrearPartidoView(generic.CreateView):
+    model = models.Partido
+    form_class = PartidoForm
+    template_name = "crear_partido.html"
+    success_url = "/list_partidos"
+    
