@@ -34,7 +34,6 @@
                 <td>{{ equipo.telefono }}</td>
                 <td>{{ equipo.email }}</td>
                 <td>
-                    <a href="{% url 'torre_sport:crear_equipo' %}">[Agregar]</a>
                     <a href="{% url 'torre_sport:actualizar_equipo' equipo.pk %}">[Actualizar]</a>
                     <a href="{% url 'torre_sport:borrar_equipo' equipo.pk %}">[Borrar]</a>
                 </td>
