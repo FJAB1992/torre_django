@@ -11,28 +11,18 @@
     <table class="table table-primary">
         <thead>
             <tr>
-                <th scope="col">ID equipo</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Id deporte</th>
-                <th scope="col">Equipación principal</th>
-                <th scope="col">Equipación visitante</th>
                 <th scope="col">Contacto</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Email</th>
                 <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
             {% for equipo in object_list %}
             <tr>
-                <td>{{ equipo.id_equipo }}</td>
                 <td>{{ equipo.nombre }}</td>
                 <td>{{ equipo.id_deporte }}</td>
-                <td>{{ equipo.equipacion_principal }}</td>
-                <td>{{ equipo.equipacion_suplente }}</td>
                 <td>{{ equipo.contacto }}</td>
-                <td>{{ equipo.telefono }}</td>
-                <td>{{ equipo.email }}</td>
                 <td>
                     <a href="{% url 'torre_sport:actualizar_equipo' equipo.pk %}">[Actualizar]</a>
                     <a href="{% url 'torre_sport:borrar_equipo' equipo.pk %}">[Borrar]</a>

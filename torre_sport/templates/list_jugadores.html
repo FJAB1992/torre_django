@@ -11,15 +11,10 @@
     <table class="table table-primary">
         <thead>
             <tr>
-                <th scope="col">ID jugador</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido 1</th>
                 <th scope="col">Apellido 2</th>
                 <th scope="col">Id equipo</th>
-                <th scope="col">Dorsal</th>
-                <th scope="col">Fecha nacimiento</th>
-                <th scope="col">Altura</th>
-                <th scope="col">Peso</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Acción</th>
             </tr>
@@ -27,15 +22,10 @@
         <tbody>
             {% for jugador in object_list %}
             <tr>
-                <td>{{ jugador.id_jugador }}</td>
                 <td>{{ jugador.nombre }}</td>
                 <td>{{ jugador.apellido1 }}</td>
                 <td>{{ jugador.apellido2 }}</td>
                 <td>{{ jugador.id_equipo }}</td>
-                <td>{{ jugador.dorsal }}</td>
-                <td>{{ jugador.fecha_nacimiento }}</td>
-                <td>{{ jugador.altura }}</td>
-                <td>{{ jugador.peso }}</td>
                 <td>{{ jugador.telefono }}</td>
                 <td>
                     <a href="{% url 'torre_sport:actualizar_jugador' jugador.pk %}">[Actualizar]</a>
