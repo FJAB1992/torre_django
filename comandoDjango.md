@@ -94,8 +94,6 @@ Nota: desde el archivo pyvenv.cfg, configuramos desde donde se usa python
 python manage.py createsuperuser
 ```
 
-USER: admin
-Password: delorian
 
 # Adicional
 Sacar en terminal en models.py los modelos de las tablas, junto con este aviso sobre cómo usarlo: 
