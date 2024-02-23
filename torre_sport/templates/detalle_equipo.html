@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+{% endblock %}
+
+{% block cuerpo %}
+<h2 class="text-center"> Equipo </h2>
+
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Id equipo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Id deporte</th>
+                <th scope="col">Equipacion principal</th>
+                <th scope="col">Equipación suplente</th>
+                <th scope="col">Contacto</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ equipo.id_equipo }}</td>
+                <td>{{ equipo.nombre }}</td>
+                <td>{{ equipo.id_deporte }}</td>
+                <td>{{ equipo.equipacion_principal }}</td>
+                <td>{{ equipo.equipacion_suplente }}</td>
+                <td>{{ equipo.contacto }}</td>
+                <td>{{ equipo.telefono }}</td>
+                <td>{{ equipo.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+<a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Inicio"></a>
+<a href="{% url 'torre_sport:list_equipos' %}"><input type="button" value="Volver"></a>
+</div>
+{% endblock %}

@@ -20,7 +20,7 @@
         <tbody>
             {% for equipo in object_list %}
             <tr>
-                <td>{{ equipo.nombre }}</td>
+                <td><a href="{% url 'torre_sport:detalle_equipo' equipo.pk %}">{{ equipo.nombre }}</a></td>
                 <td>{{ equipo.id_deporte }}</td>
                 <td>{{ equipo.contacto }}</td>
                 <td>

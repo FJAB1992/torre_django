@@ -193,3 +193,27 @@ class DetallePartidoView(generic.DetailView):
     model = models.Partido
     template_name = "detalle_partido.html"
     fields = "__all__"
+    
+class DetalleEquipoView(generic.DetailView):
+    model = models.Equipo
+    template_name = "detalle_equipo.html"
+    fields = "__all__"
+    
+    # def get_queryset(self):
+    #     pk = self.kwargs['pk']  # Obtener el parámetro 'id' de la URL
+    #     return models.Jugador.objects.filter(id_equipo=pk)
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['jugador'] = models.Jugador.objects.get(id_jugador=self.kwargs['pk'])
+    #     return context
+    
+# def detalleViewEquipos(request, pk):
+#     equipo= models.equipos.objects.get(id_equipo=pk)
+
+#     jugadores= models.jugadores.objects.filter(id_equipo=pk)
+#     contexto= {}
+#     contexto["equipo"] = equipo
+#     contexto["jugadores"] = jugadores
+
+#     return render(request, "detalle_equipos.html", contexto)
