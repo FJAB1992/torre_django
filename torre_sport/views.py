@@ -184,3 +184,12 @@ class CrearPartidoView(generic.CreateView):
     template_name = "crear_partido.html"
     success_url = "/list_partidos"
     
+class DetalleJugadorView(generic.DetailView):
+    model = models.Jugador
+    template_name = "detalle_jugador.html"
+    fields = "__all__"
+    
+class DetallePartidoView(generic.DetailView):
+    model = models.Partido
+    template_name = "detalle_partido.html"
+    fields = "__all__"

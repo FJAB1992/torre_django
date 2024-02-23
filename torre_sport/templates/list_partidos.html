@@ -23,7 +23,7 @@
         <tbody>
             {% for partido in object_list %}
             <tr>
-                <td>{{ partido.id_deporte }}</td>
+                <td><a href="{% url 'torre_sport:detalle_partido' partido.pk %}">{{ partido.id_deporte }}</a></td>
                 <td>{{ partido.fecha_hora }}</td>
                 <td>{{ partido.id_local }}</td>
                 <td>{{ partido.id_visitante }}</td>

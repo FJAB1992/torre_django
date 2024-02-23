@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+{% endblock %}
+
+{% block cuerpo %}
+<h2 class="text-center"> Partido </h2>
+
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Id partido</th>
+                <th scope="col">Id deporte</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Id instalación</th>
+                <th scope="col">Id local</th>
+                <th scope="col">Id visitante</th>
+                <th scope="col">Puntos local</th>
+                <th scope="col">Puntos visitante</th>
+                <th scope="col">Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ partido.id_partido }}</td>
+                <td>{{ partido.id_deporte }}</td>
+                <td>{{ partido.fecha_hora }}</td>
+                <td>{{ partido.id_instalacion }}</td>
+                <td>{{ partido.id_local }}</td>
+                <td>{{ partido.id_visitante }}</td>
+                <td>{{ partido.puntos_local }}</td>
+                <td>{{ partido.puntos_visitante }}</td>
+                <td>{{ partido.observaciones }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+<a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Inicio"></a>
+<a href="{% url 'torre_sport:list_partidos' %}"><input type="button" value="Volver"></a>
+</div>
+{% endblock %}

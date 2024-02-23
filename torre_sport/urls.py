@@ -27,9 +27,11 @@ urlpatterns = [
     path('borrar_jugador/<int:pk>/', views.BorrarJugadorView.as_view(), name="borrar_jugador"),
     path('actualizar_jugador/<int:pk>/', views.ActualizarJugadorView.as_view(), name="actualizar_jugador"),
     path('crear_jugador/', views.CrearJugadorView.as_view(), name="crear_jugador"),
+    path('detalle_jugador/<int:pk>/', views.DetalleJugadorView.as_view(), name="detalle_jugador"),
     # Partidos
     path('list_partidos/', views.PartidoListView.as_view(), name="list_partidos"),
     path('borrar_partido/<int:pk>/', views.BorrarPartidoView.as_view(), name="borrar_partido"),
     path('actualizar_partido/<int:pk>/', views.ActualizarPartidoView.as_view(), name="actualizar_partido"),
     path('crear_partido/', views.CrearPartidoView.as_view(), name="crear_partido"),
+    path('detalle_partido/<int:pk>/', views.DetallePartidoView.as_view(), name="detalle_partido"),
 ]
