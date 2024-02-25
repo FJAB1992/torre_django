@@ -4,8 +4,7 @@ from . import views
 app_name = "torre_sport"
 
 urlpatterns = [
-    path('', views.InicioView.as_view(), name="inicio"),   
-    path('inicio/', views.InicioView.as_view(), name="inicio"),
+    path('', views.inicio, name="inicio"),
     # Deportes
     path('list_deportes/', views.DeporteListView.as_view(), name="list_deportes"),
     path('borrar_deporte/<int:pk>/', views.BorrarDeporteView.as_view(), name="borrar_deporte"),

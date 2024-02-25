@@ -1,41 +1,18 @@
 from django.shortcuts import render
-from datetime import datetime
 from . import models
-
+from django.utils import timezone
 from .forms import DeporteForm, EquipoForm, InstalacionForm, JugadorForm, PartidoForm
 from django.views import generic
 
-class InicioView(generic.ListView):
-    template_name = "inicio.html"
-    context_object_name = "contexto"
+def inicio(request):
+    ultimos_partidos_jugados = models.Partido.objects.filter(fecha_hora__lt=timezone.now()).order_by("-fecha_hora")[:5]
+    proximos_partidos = models.Partido.objects.filter(fecha_hora__gt=timezone.now()).order_by("fecha_hora")[:5]
 
-    def get_queryset(self):
-        return models.Partido.objects.all()
+    contexto= {}
+    contexto["ultimos"]= ultimos_partidos_jugados
+    contexto["proximos"]= proximos_partidos
 
-    def get_context_data(self, **kwargs):
-        contexto = super().get_context_data(**kwargs)
-        contexto["ultimos_partidos"] = models.Partido.objects.filter(
-            fecha_hora__lt=datetime.now()
-        ).order_by("-fecha_hora")[:5]
-        contexto["proximos_partidos"] = models.Partido.objects.filter(
-            fecha_hora__gte=datetime.now()
-        ).order_by("fecha_hora")[:5]
-        return contexto
-
-    # def get_context_data(self, **kwargs):
-    #         context = super().get_context_data(**kwargs)
-    #         context['instalaciones'] = models.Instalacion.objects.all() #ya
-    #         context['equipos'] = models.Equipo.objects.all()
-    #         context['jugadores'] = models.Jugador.objects.all()
-    #         context['partidos'] = models.Partido.objects.all()
-    #         context['deportes'] = models.Deporte.objects.all()
-    #         return context
-# class InicioView(generic.ListView):
-#     model = models.Deporte
-#     template_name = "inicio.html"
-
-    
-
+    return render(request, "inicio.html", contexto)
 
 # Vistas de deportes
 class DeporteListView(generic.ListView):

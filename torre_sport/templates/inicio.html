@@ -22,5 +22,51 @@
         <img src="{% static 'img/koby.avif' %}" alt="Black mamba."/>
     </div>
 </div>
+<br><br><br>
+<div class="table-responsive">
+    <h1 class="text-center"> Últimos 5 partidos </h1>
+    <table class="table table-dark"> 
+        <thead>
+            <tr>
+                <th>Fecha y Hora</th>
+                <th>Equipo Local</th>
+                <th>Equipo Visitante</th>
+                <th>Resultado</th>                                            
+            </tr>
+        </thead>
+        <tbody>
+            {% for partido in ultimos %}
+            <tr>
+                <td>{{ partido.fecha_hora }}</td>
+                <td>{{ partido.id_local }}</td>
+                <td>{{ partido.id_visitante }}</td>
+                <td>{{ partido.puntos_local }} - {{ partido.puntos_visitante }}</td>                                   
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+</div>
+<br><br><br>
+<div class="table-responsive">
+    <h1 class="text-center"> Próximos 5 partidos </h1>
+    <table class="table table-dark"> 
+        <thead>
+            <tr>
+                <th>Fecha y Hora</th>
+                <th>Equipo Local</th>
+                <th>Equipo Visitante</th>                                                                           
+            </tr>
+        </thead>
+        <tbody>
+            {% for partido in proximos %}
+            <tr>
+                <td>{{ partido.fecha_hora }}</td>  
+                <td>{{ partido.id_local }}</td>
+                <td>{{ partido.id_visitante }}</td>                                          
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>   
+</div>
 
 {% endblock %}
