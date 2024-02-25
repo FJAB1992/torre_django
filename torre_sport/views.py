@@ -138,9 +138,10 @@ class PartidoListView(generic.ListView):
     model = models.Partido
     template_name = "list_partidos.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    def get_queryset(self):
+        # Filtrar y ordenar los partidos por fecha_hora
+        queryset = models.Partido.objects.all().order_by("fecha_hora")
+        return queryset
 
 
 class BorrarPartidoView(generic.DeleteView):

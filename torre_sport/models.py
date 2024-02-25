@@ -90,6 +90,7 @@ class Partido(models.Model):
         return f"{self.id_deporte.nombre} {self.id_instalacion.nombre} {self.id_local.nombre} {self.id_visitante.nombre}"
 
 
+
 # Tabla jugadores
 class Jugador(models.Model):
     id_jugador = models.AutoField(primary_key=True)

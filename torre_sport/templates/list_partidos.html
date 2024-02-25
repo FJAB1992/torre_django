@@ -11,7 +11,7 @@
     <table class="table table-primary">
         <thead>
             <tr>
-                <th scope="col">Id deporte</th>
+                <th scope="col">Deporte</th>
                 <th scope="col">Fecha hora</th>
                 <th scope="col">Nombre equipo local</th>
                 <th scope="col">Nombre equipo visitante</th>
@@ -23,10 +23,10 @@
         <tbody>
             {% for partido in object_list %}
             <tr>
-                <td><a href="{% url 'torre_sport:detalle_partido' partido.pk %}">{{ partido.id_deporte }}</a></td>
+                <td><a href="{% url 'torre_sport:detalle_partido' partido.pk %}">{{ partido.id_deporte.nombre }}</a></td>
                 <td>{{ partido.fecha_hora }}</td>
-                <td>{{ partido.id_local }}</td>
-                <td>{{ partido.id_visitante }}</td>
+                <td>{{ partido.id_local.nombre }}</td>
+                <td>{{ partido.id_visitante.nombre }}</td>
                 <td>{{ partido.puntos_local }}</td>
                 <td>{{ partido.puntos_visitante }}</td>
                 <td>
