@@ -11,9 +11,11 @@
     <table class="table table-primary">
         <thead>
             <tr>
-                <th scope="col">Nombre</th>
+                <th scope="col">Equipo</th>
                 <th scope="col">Deporte</th>
                 <th scope="col">Contacto</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Email</th>
                 <th scope="col">Acción</th>
             </tr>
         </thead>
@@ -23,6 +25,8 @@
                 <td><a href="{% url 'torre_sport:detalle_equipo' equipo.pk %}">{{ equipo.nombre }}</a></td>
                 <td>{{ equipo.id_deporte }}</td>
                 <td>{{ equipo.contacto }}</td>
+                <td>{{ equipo.telefono }}</td>
+                <td>{{ equipo.email }}</td>
                 <td>
                     <a href="{% url 'torre_sport:actualizar_equipo' equipo.pk %}">[Actualizar]</a>
                     <a href="{% url 'torre_sport:borrar_equipo' equipo.pk %}">[Borrar]</a>
