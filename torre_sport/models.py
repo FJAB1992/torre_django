@@ -59,7 +59,7 @@ class Instalacion(models.Model):
 class Partido(models.Model):
     id_partido = models.AutoField(primary_key=True)
     id_deporte = models.ForeignKey(
-        Equipo, on_delete=models.RESTRICT, db_column="id_deporte", default=0
+        Deporte, on_delete=models.RESTRICT, db_column="id_deporte", default=0
     )
     fecha_hora = models.DateTimeField()
     id_instalacion = models.ForeignKey(
