@@ -12,7 +12,7 @@
         <thead>
             <tr>
                 <th scope="col">ID instalación</th>
-                <th scope="col">Nombre</th>
+                <th scope="col">Instalación</th>
                 <th scope="col">Direccion</th>
                 <th scope="col">Iluminación</th>
                 <th scope="col">Cubierta</th>
@@ -25,8 +25,18 @@
                 <td>{{ instalacion.id_instalacion }}</td>
                 <td>{{ instalacion.nombre }}</td>
                 <td>{{ instalacion.direccion }}</td>
-                <td>{{ instalacion.iluminacion }}</td>
-                <td>{{ instalacion.cubierta }}</td>
+                <td>{% if instalacion.iluminacion %}
+                    Si 
+                    {% else %}
+                    No
+                    {% endif %}
+                </td>
+                <td>{% if instalacion.cubierta %}
+                    Si 
+                    {% else %}
+                    No
+                    {% endif %}
+                </td>
                 <td>
                     <a href="{% url 'torre_sport:actualizar_instalacion' instalacion.pk %}">[Actualizar]</a>
                     <a href="{% url 'torre_sport:borrar_instalacion' instalacion.pk %}">[Borrar]</a>
