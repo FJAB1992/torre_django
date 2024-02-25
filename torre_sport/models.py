@@ -13,7 +13,7 @@ class Deporte(models.Model):
         db_table = "deportes"
 
     def __str__(self):
-        return f"{self.id_deporte}"
+        return f"{self.nombre}"
 
 
 # Tabla equipos
@@ -35,14 +35,14 @@ class Equipo(models.Model):
         db_table = "equipos"
 
     def __str__(self):
-        return f"{self.id_equipo}"
+        return f"{self.nombre}"
 
 
 # Tabla instalaciones
 class Instalacion(models.Model):
     id_instalacion = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20, unique=True)
-    direccion = models.CharField(max_length=100,blank=True,null=True)
+    direccion = models.CharField(max_length=100, blank=True, null=True)
     iluminacion = models.BooleanField(default=False)
     cubierta = models.BooleanField(default=False)
 
@@ -52,7 +52,7 @@ class Instalacion(models.Model):
         db_table = "instalaciones"
 
     def __str__(self):
-        return f"{self.id_instalacion}"
+        return f"{self.nombre}"
 
 
 # Tabla partidos
@@ -79,7 +79,7 @@ class Partido(models.Model):
     )
     puntos_local = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     puntos_visitante = models.IntegerField(default=0, validators=[MinValueValidator(0)])
-    observaciones = models.CharField(max_length=200,blank=True,null=True)
+    observaciones = models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
         verbose_name = "Partido"
@@ -87,7 +87,7 @@ class Partido(models.Model):
         db_table = "partidos"
 
     def __str__(self):
-        return f"{self.id_partido} {self.id_deporte} {self.fecha_hora} {self.id_instalacion} {self.id_local} {self.id_visitante} {self.puntos_local} {self.puntos_visitante} {self.observaciones}"
+        return f"{self.id_deporte.nombre} {self.id_instalacion.nombre} {self.id_local.nombre} {self.id_visitante.nombre}"
 
 
 # Tabla jugadores
@@ -101,9 +101,11 @@ class Jugador(models.Model):
     )
     dorsal = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     fecha_nacimiento = models.DateField()
-    altura = models.DecimalField(max_digits=3, decimal_places=2,default=0, validators=[MinValueValidator(0)])
+    altura = models.DecimalField(
+        max_digits=3, decimal_places=2, default=0, validators=[MinValueValidator(0)]
+    )
     peso = models.IntegerField(default=0, validators=[MinValueValidator(0)])
-    telefono = models.CharField(max_length=15,blank=True,null=True)
+    telefono = models.CharField(max_length=15, blank=True, null=True)
 
     class Meta:
         verbose_name = "Jugador"
@@ -111,4 +113,4 @@ class Jugador(models.Model):
         db_table = "jugadores"
 
     def __str__(self):
-        return f"{self.id_jugador} {self.nombre} {self.apellido1} {self.apellido2} {self.id_equipo.id_equipo} {self.dorsal} {self.fecha_nacimiento} {self.altura} {self.peso} {self.telefono}"
+        return f"{self.id_equipo.nombre}"

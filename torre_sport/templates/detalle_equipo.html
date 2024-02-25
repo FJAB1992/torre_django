@@ -36,8 +36,32 @@
         </tbody>
     </table>
 </div>
+
+<h2 class="text-center"> Jugadores </h2>
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Dorsal</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jugador in jugadores %}
+            <tr>
+                <td>{{ jugador.dorsal }}</td>
+                <td>{{ jugador.nombre }}</td>
+                <td>{{ jugador.apellido1 }} {{ jugador.apellido2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 <div class="text-center">
 <a href="{% url 'torre_sport:inicio' %}"><input type="button" value="Inicio"></a>
+<a href="{% url 'torre_sport:crear_jugador' %}"><input type="button" value="Añadir jugador"></a>
 <a href="{% url 'torre_sport:list_equipos' %}"><input type="button" value="Volver"></a>
 </div>
 {% endblock %}

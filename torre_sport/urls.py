@@ -17,8 +17,8 @@ urlpatterns = [
     path('borrar_equipo/<int:pk>/', views.BorrarEquipoView.as_view(), name="borrar_equipo"),
     path('actualizar_equipo/<int:pk>/', views.ActualizarEquipoView.as_view(), name="actualizar_equipo"),
     path('crear_equipo/', views.CrearEquipoView.as_view(), name="crear_equipo"),
-    path('detalle_equipo/<int:pk>/', views.DetalleEquipoView.as_view(), name="detalle_equipo"),
-    # path('detalle_equipo/<int:pk>/', views.detalleViewEquipos, name="detalle_equipo"),
+    # path('detalle_equipo/<int:pk>/', views.DetalleEquipoView.as_view(), name="detalle_equipo"),
+    path('detalle_equipo/<int:pk>/', views.detalleViewEquipos, name="detalle_equipo"),
     # Instalaciones
     path('list_instalaciones/', views.InstalacionListView.as_view(), name="list_instalaciones"),
     path('borrar_instalacion/<int:pk>/', views.BorrarInstalacionView.as_view(), name="borrar_instalacion"),
