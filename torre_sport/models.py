@@ -21,7 +21,7 @@ class Equipo(models.Model):
     id_equipo = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20, unique=True)
     id_deporte = models.ForeignKey(
-        Deporte, on_delete=models.RESTRICT, db_column="id_deporte", default=0
+        Deporte, on_delete=models.DO_NOTHING, db_column="id_deporte", default=0
     )
     equipacion_principal = models.CharField(max_length=100)
     equipacion_suplente = models.CharField(max_length=100)
@@ -59,7 +59,7 @@ class Instalacion(models.Model):
 class Partido(models.Model):
     id_partido = models.AutoField(primary_key=True)
     id_deporte = models.ForeignKey(
-        Deporte, on_delete=models.RESTRICT, db_column="id_deporte", default=0
+        Deporte, on_delete=models.DO_NOTHING, db_column="id_deporte", default=0
     )
     fecha_hora = models.DateTimeField()
     id_instalacion = models.ForeignKey(
@@ -68,13 +68,13 @@ class Partido(models.Model):
     id_local = models.ForeignKey(
         Equipo,
         related_name="partidos_local",
-        on_delete=models.RESTRICT,
+        on_delete=models.DO_NOTHING,
         db_column="id_local",
     )
     id_visitante = models.ForeignKey(
         Equipo,
         related_name="partidos_visitante",
-        on_delete=models.RESTRICT,
+        on_delete=models.DO_NOTHING,
         db_column="id_visitante",
     )
     puntos_local = models.IntegerField(default=0, validators=[MinValueValidator(0)])
@@ -98,7 +98,7 @@ class Jugador(models.Model):
     apellido1 = models.CharField(max_length=20)
     apellido2 = models.CharField(max_length=20)
     id_equipo = models.ForeignKey(
-        Equipo, on_delete=models.RESTRICT, db_column="id_equipo", default=0
+        Equipo, on_delete=models.DO_NOTHING, db_column="id_equipo", default=0
     )
     dorsal = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     fecha_nacimiento = models.DateField()
